@@ -1,24 +1,50 @@
-# README
+# テーブル設計
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## users テーブル
 
-Things you may want to cover:
+|Column             |Type     |Options                    |
+|--------------------|--------|-------------------------- |
+| name               | string | null: false               |
+| email              | string | null: false, unique: true |
+| encrypted_password | string | null: false               |
+|                                                         |
 
-* Ruby version
+### association
 
-* System dependencies
+has_many :weights
 
-* Configuration
+has_many :blood-presses
 
-* Database creation
+<br>
 
-* Database initialization
+## weights テーブル
 
-* How to run the test suite
+| Column          | Type       | Options                        |
+| --------------- | ---------- | ------------------------------ |
+| weight          | integer    | null: false                    |
+| fat             | integer    | null: false
+| bone-mascle     | integer    | null: false                    |
+| base-metabolism | integer    | null: false                    |
+| bmi             | text       | null: false                    |
+|                                                               |
 
-* Services (job queues, cache servers, search engines, etc.)
+### association
 
-* Deployment instructions
+belongs_to :user
 
-* ...
+<br>
+
+## blood-presses テーブル
+
+| Column     | Type       | Options                        |
+| ---------- | ---------- | ------------------------------ |
+| hight      | integer    | null: false                    |
+| row        | integer    | null: false                    |
+| pluse      | integer    | null: false                    |
+| sleep-time | integer    | null: false                    |
+| bmi        | integer    | null: false                    |
+|                                                          |
+
+### association
+
+belongs_to :user
