@@ -1,29 +1,51 @@
-<h2>Sign up</h2>
+<div class="container">
+  <header>
+    <div class="row">
+      <div class="col-sm-6">
+        <h1>【〈体重・血圧〉記録】</h1>
+      </div>
+      <div class="col-sm-6 text-right">
+        <a href="#">HOMEへ戻る</a>
+      </div> 
+    </div>
+  </header>
+</div>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+<hr>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+<div class="container">
+  <h2>ユーザー新規登録</h2>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
+  <%= form_with model: @user, url: user_registration_path, local: true do |f| %>
+    
+    <%= render 'shared/error_messages', model: f.object %>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
+    <div class="field">
+      <%= f.label :email, "メールアドレス" %><br />
+      <%= f.email_field :email, id:"user_email", autofocus: true, autocomplete: "on" %>
+    </div>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
+    <div class="field">
+      <%= f.label :password, "パスワード（半角英数字6文字以上）" %><br />
+      <%= f.password_field :password, id:"user_password", autocomplete: "off" %>
+      <button id="btn_passview">表示</button>
+    </div>
+    
+    <div class="field">
+      <%= f.label :password_confirmation, "パスワード再入力" %><br />
+      <%= f.password_field :password_confirmation, id:"user_password_confirmation", autocomplete: "off" %>
+      <button id="btn_passview_conf">表示</button>
+    </div>
+    
 
-<%= render "devise/shared/links" %>
+    <div class="field">
+      <%= f.label :name, "ユーザー名 (漢字)" %><br />
+      <%= f.text_field :name, id:"user_name" %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "新規登録", class: :form__btn  %>
+    </div>
+  <% end %>
+
+</div>
