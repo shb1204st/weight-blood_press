@@ -1,0 +1,2 @@
+class WeightBloodPressesController < ApplicationController
+end
