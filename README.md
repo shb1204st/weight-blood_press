@@ -11,13 +11,11 @@
 
 ### association
 
-has_many :weights
-
-has_many :blood-presses
+has_many :weight_blood_presses
 
 <br>
 
-## weights テーブル
+## weight_blood_pressesテーブル
 
 | Column          | Type       | Options                        |
 | --------------- | ---------- | ------------------------------ |
@@ -26,24 +24,11 @@ has_many :blood-presses
 | bone-mascle     | integer    | null: false                    |
 | base-metabolism | integer    | null: false                    |
 | bmi             | text       | null: false                    |
+| hight    　　　  | integer    | null: false                    |
+| row        　　　| integer    | null: false                    |
+| pluse     　　　 | integer    | null: false                    |
+| sleep-time 　　　| time       | null: false                    |
 |                                                               |
-
-### association
-
-belongs_to :user
-
-<br>
-
-## blood-presses テーブル
-
-| Column     | Type       | Options                        |
-| ---------- | ---------- | ------------------------------ |
-| hight      | integer    | null: false                    |
-| row        | integer    | null: false                    |
-| pluse      | integer    | null: false                    |
-| sleep-time | integer    | null: false                    |
-| bmi        | integer    | null: false                    |
-|                                                          |
 
 ### association
 

@@ -1,0 +1,2 @@
+module WeightBloodPressesHelper
+end
