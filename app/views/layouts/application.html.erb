@@ -19,6 +19,29 @@
   </head>
 
   <body>
+    <div class="container">
+      <header>
+        <div class="row">
+          <div class="col-sm-8 text-left">
+            <h1><%=link_to "【〈体重・血圧計〉記録】", root_path %></h1>
+          </div>
+          <% if user_signed_in? %>
+            <div class="col-sm-6 text-right align-middle">
+              <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: :nav__logout, data: { confirm: 'ログアウトしますか？' } %>
+            </div>
+          <% else%>
+            <div class="col-sm-2 text-right align-mieddle">
+              <%= link_to "新規登録", new_user_registration_path, class: :nav_up__btn %>
+            </div>
+            <div class="col-sm-2 text-center align-middle">
+              <%= link_to "ログイン",  new_user_session_path, class: :nav_in__btn %>
+            </div>
+          <% end %> 
+        </div>
+      </header>
+    </div>
+
+  <hr>
     <%= yield %>
   </body>
 </html>
